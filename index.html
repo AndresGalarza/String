@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+
+
+$(document).ready(function(){
+
+function replacement(abc){
+abc = abc.replace(/ /g,"_");
+    abc = abc.toLowerCase();
+    abc = abc.replace(/[áàäâªÁÀÂÄ]/g,"a");
+    abc = abc.replace(/[éèëêÉÈÊË]/g,"e");
+    abc = abc.replace(/[íìïîÍÌÏÎ]/g,"i");
+    abc = abc.replace(/[óòöôÓÒÖÔ]/g,"o");
+    abc = abc.replace(/[úùüûÚÙÛÜ]/g,"u");
+    abc = abc.replace(/[ñÑ]/g,"ñ");
+    abc = abc.replace(/[çÇ]/g,"ñ");
+    abc = abc.replace(/[^abcdefghijklmnopqrstuvwxyz^1234567890_]/g,"_");
+
+return abc;
+}
+  $("input").keyup(function(){
+    stringer = $("input").val();
+    stringer = replacement(stringer)
+
+    
+
+
+    $("#gg").html(stringer);
+  });
+});
+</script>
+</head>
+<body>
+
+Enter your name: <input type="text">
+<p>Enter your name in the input field above. It will change background color on keydown and keyup.</p>
+
+<div id="gg"></div>
+
+</body>
+</html>
